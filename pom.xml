@@ -2,6 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<jdbc.driver>org.mariadb.jdbc.Driver</jdbc.driver>
+				<jdbc.url>jdbc:mysql://localhost:3306/tcb</jdbc.url>
+				<jdbc.user>root</jdbc.user>
+				<jdbc.pass></jdbc.pass>
+				<jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
+				<jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
+				<jdbc.connections.max.active>5</jdbc.connections.max.active>
+			</properties>
+			</profile>
+			<profile>
+			<id>prod</id>
+			<properties>
+				<jdbc.driver>org.mariadb.jdbc.Driver</jdbc.driver>
+				<jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADD
+				ON_DB}</jdbc.url>
+				<jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
+				<jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
+				<jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>
+				<jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
+				<jdbc.connections.max.active>2</jdbc.connections.max.active>
+			</properties>
+		</profile>
+	</profiles>
 
 	<groupId>dev</groupId>
 	<artifactId>top-collegues-backend</artifactId>

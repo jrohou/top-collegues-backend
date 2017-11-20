@@ -26,8 +26,8 @@ public class CollegueController {
 	
 	@PostConstruct
 	public void insererCollegue() {
-		listeCollegue.save(new Collegue ("Toto le rigolo",100,"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/LutraCanadensis_fullres.jpg/290px-LutraCanadensis_fullres.jpg"));
-		listeCollegue.save(new Collegue("Popol le clown", 500, "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Male_mallard_standing.jpg/220px-Male_mallard_standing.jpg"));
+		listeCollegue.save(new Collegue ("Toto le rigolo",100,"http://www.coloori.com/wp-content/uploads/2016/05/loutrefond.jpg"));
+		listeCollegue.save(new Collegue("Popol le clown", 500, "https://www.ciwf.fr/media/7431059/fr-wide-july-17.jpg"));
 	}
 	
 	@GetMapping
@@ -41,7 +41,7 @@ public class CollegueController {
 		return this.listeCollegue.save(unCollegue);
 	}
 	
-	@PutMapping(value = "/{nom}")
+	@PutMapping(value = "/{nom}/score")
 	public Collegue editCollegue(@RequestBody Collegue editCollegue, @PathVariable String nom) {
 		return this.listeCollegue.save(editCollegue);
 	}
