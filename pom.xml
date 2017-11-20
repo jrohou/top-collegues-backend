@@ -63,6 +63,13 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<configuration>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
+						<archive>
+				          <manifest>
+				            <addClasspath>true</addClasspath>
+				            <classpathPrefix>lib/</classpathPrefix>
+				            <mainClass>dev.tcb.entite</mainClass>
+				          </manifest>
+        				</archive>
 					</configuration>
 				</plugin>
 			</plugins>
