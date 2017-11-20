@@ -57,23 +57,12 @@
 
 	<build>
 		<finalName>tcb</finalName>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-war-plugin</artifactId>
-					<configuration>
-						<failOnMissingWebXml>false</failOnMissingWebXml>
-						<archive>
-				          <manifest>
-				            <addClasspath>true</addClasspath>
-				            <classpathPrefix>lib/</classpathPrefix>
-				            <mainClass>dev.tcb.Application</mainClass>
-				          </manifest>
-        				</archive>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 	<dependencies>
