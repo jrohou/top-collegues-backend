@@ -67,7 +67,7 @@
 				          <manifest>
 				            <addClasspath>true</addClasspath>
 				            <classpathPrefix>lib/</classpathPrefix>
-				            <mainClass>dev.tcb.entite</mainClass>
+				            <mainClass>dev.tcb.Application</mainClass>
 				          </manifest>
         				</archive>
 					</configuration>
